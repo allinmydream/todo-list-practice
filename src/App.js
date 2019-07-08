@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
-import Container from './Container';
 
 class App extends Component {
     constructor(props) {

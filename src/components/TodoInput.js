@@ -1,4 +1,21 @@
 import React, { Component } from 'react';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+// import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+
+const useStyles = makeStyles(theme => ({
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    TextField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+    }
+}))
 
 class TodoInput extends Component {
     constructor(props) {
@@ -28,13 +45,24 @@ class TodoInput extends Component {
         const { handleChange, handleClick } = this;
         return(
             <div className="TodoInput">
-                <input
-                    className="content" 
+                {/* <input 
                     placeholder="할일을 입력하세요"
                     value={this.state.inputValue}
                     onChange={handleChange}  
+                /> */}
+                <TextField
+                    class={useStyles.TextField}
+                    id="outlined-dense"
+                    label="To do"
+                    // className={}
+                    margin="dense"
+                    variant="outlined"
+                    value={this.state.inputValue}
+                    onChange={handleChange}
                 />
-                <button onClick={ handleClick }>Add</button>
+                <Fab color="primary" aria-label="Add" onClick={handleClick}>
+                    <AddIcon />
+                </Fab>
             </div>
         )
     }
